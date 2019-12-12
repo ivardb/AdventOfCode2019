@@ -12,7 +12,7 @@ def readFile(filename):
 def part1(input):
     computer = simpleComputer(input)
     computer.executeProgram()
-    return input[0]
+    return computer.program.get(0)
 
 def part2(input):
     for i in range(0, 100):

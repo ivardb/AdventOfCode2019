@@ -3,9 +3,6 @@ import time
 
 from objects.computers.TESTComputer import TESTComputer
 
-inputCode = 0
-position = 0
-
 def readFile(filename):
     with open(filename) as f:
         return [int(x) for x in f.read().split(",")]
