@@ -50,7 +50,7 @@ def part2(data):
     plt.imshow(image, cmap="gray")
     plt.show()
 
-data = readFile("../data/day8.txt")
+data = readFile("../../data/day8.txt")
 print(len(data)/(25*6))
 start = time.time()
 answer1 = part1(data)
@@ -58,7 +58,7 @@ end = time.time()
 print("Part 1:", answer1)
 print("Duration:", end-start, "s")
 
-data = readFile("../data/day8.txt")
+data = readFile("../../data/day8.txt")
 start = time.time()
 part2(data)
 end = time.time()

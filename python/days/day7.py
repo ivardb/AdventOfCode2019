@@ -160,14 +160,14 @@ def processCode(data, pos, inputCode):
     elif opcode == 99:
         return -1
 
-data = readFile("../data/day7.txt")
+data = readFile("../../data/day7.txt")
 start = time.time()
 answer1 = part1(data)
 end = time.time()
 print("Part 1:", answer1)
 print("Duration:", end-start, "s")
 
-data = readFile("../data/day7.txt")
+data = readFile("../../data/day7.txt")
 start = time.time()
 answer2 = part2(data)
 end = time.time()

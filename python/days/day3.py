@@ -40,14 +40,14 @@ def getPoints(input):
                 res[(x,y)] = length
     return res
 
-A, B = readFile("../data/day3.txt")
+A, B = readFile("../../data/day3.txt")
 start = time.time()
 answer1 = part1(A, B)
 end = time.time()
 print("Part1:", answer1)
 print("Duration:", end-start, "s")
 
-A, B = readFile("../data/day3.txt")
+A, B = readFile("../../data/day3.txt")
 start = time.time()
 answer2 = part2(A, B)
 end = time.time()

@@ -27,7 +27,7 @@ def part2(input):
             if answer == 19690720:
                 return 100 * i + j
 
-input = readFile("../data/day2.txt")
+input = readFile("../../data/day2.txt")
 input[1] = 12
 input[2] = 2
 start = time.time()
@@ -36,7 +36,7 @@ end = time.time()
 print("Part1:", answer1)
 print("Duration:", end-start, "s")
 
-input = readFile("../data/day2.txt")
+input = readFile("../../data/day2.txt")
 start = time.time()
 answer2 = part2(input)
 end = time.time()

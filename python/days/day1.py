@@ -25,14 +25,14 @@ def calcMass(x):
     return x
 
 
-input = readFile("../data/day1.txt")
+input = readFile("../../data/day1.txt")
 start = time.time()
 answer1 = part1(input)
 end = time.time()
 print("Part1:", answer1)
 print("Duration:", end-start, "s")
 
-input = readFile("../data/day1.txt")
+input = readFile("../../data/day1.txt")
 start = time.time()
 answer2 = part2(input)
 end = time.time()

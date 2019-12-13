@@ -43,7 +43,7 @@ def part2(data):
     commonPoint = [x for x in YouOrbitPath if x in SANOrbit][0]
     return YouOrbitPath.index(commonPoint)+SANOrbit.index(commonPoint)
 
-data = readFile("../data/day6.txt")
+data = readFile("../../data/day6.txt")
 start = time.time()
 
 answer1 = part1(data)
@@ -51,7 +51,7 @@ end = time.time()
 print("Part 1:", answer1)
 print("Duration:", end-start, "s")
 
-data = readFile("../data/day6.txt")
+data = readFile("../../data/day6.txt")
 start = time.time()
 answer2 = part2(data)
 end = time.time()

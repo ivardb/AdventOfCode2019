@@ -99,14 +99,14 @@ def valid(dx, dy):
             return False
     return True
 
-data = readFile("../data/day10.txt")
+data = readFile("../../data/day10.txt")
 start = time.time()
 answer1 = part1(data)
 end = time.time()
 print("Part 1:", answer1)
 print("Duration:", end-start, "s")
 
-data = readFile("../data/day10.txt")
+data = readFile("../../data/day10.txt")
 start = time.time()
 answer2 = part2(data)
 end = time.time()

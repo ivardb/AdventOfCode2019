@@ -75,15 +75,14 @@ def applyVelocity(data):
         moon.applyVelocity()
 
 
-data = readFile("../data/day12.txt")
+data = readFile("../../data/day12.txt")
 start = time.time()
 answer1 = part1(data)
 end = time.time()
 print("Part 1:", answer1)
 print("Duration:", end-start, "s")
 
-data = readFile("../data/day12.txt")
-#data = readFile("../data/test.txt")
+data = readFile("../../data/day12.txt")
 start = time.time()
 answer2 = part2(data)
 end = time.time()
