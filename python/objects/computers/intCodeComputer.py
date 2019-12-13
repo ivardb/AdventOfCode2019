@@ -43,11 +43,10 @@ class intCodeComputer(ABC):
             self.program[output] = val1 * val2
             return 4
         elif opcode == 3:
-            inputCode = self.processInput()
-            if C==1:
-                self.program[self.program[self.position + 1]] = inputCode
+            if C==0:
+                self.program[self.program[self.position + 1]] = self.processInput()
             else:
-                self.program[self.program[self.position+1]+self.relativeBase] = inputCode
+                self.program[self.program[self.position+1]+self.relativeBase] = self.processInput()
             return 2
         elif opcode == 4:
             par1 = self.program.get(self.position + 1, 0)
