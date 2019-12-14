@@ -1,5 +1,4 @@
 from objects.computers.intCodeComputer import intCodeComputer
-from matplotlib import pyplot as plt
 
 class arcadeCabinet(intCodeComputer):
 
