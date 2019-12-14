@@ -24,40 +24,32 @@ class intCodeComputer(ABC):
         C = int(instruction/100)
         instruction -= C * 100
         opcode = instruction
+
         if opcode == 1:
             val1 = self.getParameter(self.position+1, C)
             val2 = self.getParameter(self.position+2, B)
-            if A==2:
-                output = self.program.get(self.position+3, 0)+self.relativeBase
-            else:
-                output = self.program.get(self.position+3, 0)
+            output = self.getOutputLocation(self.position+3, A)
             self.program[output] = val1 + val2
             return 4
+
         elif opcode == 2:
             val1 = self.getParameter(self.position+1, C)
             val2 = self.getParameter(self.position+2, B)
-            if A==2:
-                output = self.program.get(self.position+3, 0)+self.relativeBase
-            else:
-                output = self.program.get(self.position+3, 0)
+            output = self.getOutputLocation(self.position+3, A)
             self.program[output] = val1 * val2
             return 4
+
         elif opcode == 3:
-            if C==0:
-                self.program[self.program[self.position + 1]] = self.processInput()
-            else:
-                self.program[self.program[self.position+1]+self.relativeBase] = self.processInput()
+            inputCode = self.processInput()
+            output = self.getOutputLocation(self.position+1, C)
+            self.program[output] = inputCode
             return 2
+
         elif opcode == 4:
-            par1 = self.program.get(self.position + 1, 0)
-            if C == 0:
-                outputProgram = self.program.get(par1, 0)
-            elif C==1:
-                outputProgram = par1
-            else:
-                outputProgram = self.program.get(self.relativeBase+par1, 0)
+            outputProgram = self.getParameter(self.position+1, C)
             self.processOutput(outputProgram)
             return 2
+
         elif opcode == 5:
             val1 = self.getParameter(self.position+1, C)
             val2 = self.getParameter(self.position+2, B)
@@ -66,6 +58,7 @@ class intCodeComputer(ABC):
                 return 0
             else:
                 return 3
+
         elif opcode == 6:
             val1 = self.getParameter(self.position+1, C)
             val2 = self.getParameter(self.position+2, B)
@@ -74,34 +67,32 @@ class intCodeComputer(ABC):
                 return 0
             else:
                 return 3
+
         elif opcode == 7:
             val1 = self.getParameter(self.position+1, C)
             val2 = self.getParameter(self.position+2, B)
-            if A==2:
-                output = self.program.get(self.position+3, 0)+self.relativeBase
-            else:
-                output = self.program.get(self.position+3, 0)
+            output = self.getOutputLocation(self.position+3, A)
             if val1<val2:
                 self.program[output] = 1
             else:
                 self.program[output] = 0
             return 4
+
         elif opcode == 8:
             val1 = self.getParameter(self.position+1, C)
             val2 = self.getParameter(self.position+2, B)
-            if A==2:
-                output = self.program.get(self.position+3, 0)+self.relativeBase
-            else:
-                output = self.program.get(self.position+3, 0)
+            output = self.getOutputLocation(self.position+3, A)
             if val1==val2:
                 self.program[output] = 1
             else:
                 self.program[output] = 0
             return 4
+
         elif opcode == 9:
             val1 = self.getParameter(self.position+1, C)
             self.relativeBase+=val1
             return 2
+
         elif opcode == 99:
             return -1
 
@@ -112,6 +103,12 @@ class intCodeComputer(ABC):
             return self.program.get(pos, 0)
         if type==2:
             return self.program.get(self.relativeBase+self.program.get(pos, 0), 0)
+
+    def getOutputLocation(self, pos, type):
+        if type== 0:
+            return self.program.get(pos, 0)
+        if type==2:
+            return self.program.get(pos, 0)+self.relativeBase
 
     """Should return the value inputted in the machine"""
     @abstractmethod
