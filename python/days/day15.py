@@ -69,7 +69,7 @@ def bfs2(grid, position):
     while queue:
         displayCount+=1
         current = queue.popleft()
-        if displayCount%10 == 0:
+        if displayCount%15 == 0:
             display(grid)
         x = current[0]
         y = current[1]
@@ -82,9 +82,9 @@ def bfs2(grid, position):
 
 data = readFile("../../data/day15.txt")
 start = time.time()
-answer1 = part1(data)
+#answer1 = part1(data)
 end = time.time()
-print("Part 1:", answer1)
+#print("Part 1:", answer1)
 print("Duration:", end-start, "s")
 
 data = readFile("../../data/day15.txt")
